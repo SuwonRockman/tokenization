@@ -214,15 +214,6 @@ tokenization/
 
 ---
 
-## 🚀 다음 학습
-
-이 프로젝트 이후:
-1. **Transformer 기초** - Attention 메커니즘
-2. **LLM Fine-tuning** - 토크나이제이션 최적화
-3. **RAG 시스템** - 실무 적용
-
----
-
 **생성일:** 2026년 5월 31일  
 **난이도:** 중상 (기술 이해 필요)  
 **GitHub:** https://github.com/SuwonRockman/tokenization
