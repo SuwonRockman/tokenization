@@ -13,22 +13,80 @@
 
 LLM이 텍스트를 처리하려면 **텍스트를 작은 단위로 나누고 숫자로 변환**해야 합니다. 단어를 어떻게 나눌지에 대한 3가지 선택지를 살펴봅니다.
 
-| 관점 / 접근 방식 | `machine` 처리 예시 | 설명 및 한계 |
-| :--- | :--- | :--- |
-| **사람의 관점** | 의미 단위로 직관적 이해 | - |
-| **선택지 1: 문자 단위** | `['m','a','c','h','i','n','e']`<br>→ `[1,2,3,4,5,6,7]` | **7개 토큰 생성.** 정보가 너무 분산되어 비효율적 |
-| **선택지 2: 단어 단위** | `['machine']` | 단어 변형(`machines`)마다 새로운 ID 필요.<br>**어휘 폭발(Vocabulary 낭비)** 발생 |
-| **선택지 3: 서브워드** | ❓ | **목표:** 적절한 크기의 단위 찾기 |
+<table width="100%">
+  <thead>
+    <tr>
+      <th align="center" width="25%">관점 / 접근 방식</th>
+      <th align="center" width="35%"><code>machine</code> 처리 예시</th>
+      <th align="center" width="40%">설명 및 한계</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="center"><b>사람의 관점</b></td>
+      <td align="center">의미 단위로 직관적 이해</td>
+      <td align="center">-</td>
+    </tr>
+    <tr>
+      <td align="center"><b>선택지 1: 문자 단위</b></td>
+      <td align="center"><code>['m','a','c','h','i','n','e']</code><br>→ <code>[1,2,3,4,5,6,7]</code></td>
+      <td align="center"><b>7개 토큰 생성.</b> 정보가 너무 분산되어 비효율적</td>
+    </tr>
+    <tr>
+      <td align="center"><b>선택지 2: 단어 단위</b></td>
+      <td align="center"><code>['machine']</code></td>
+      <td align="center">단어 변형(<code>machines</code>)마다 새로운 ID 필요.<br><b>어휘 폭발(Vocabulary 낭비)</b> 발생</td>
+    </tr>
+    <tr>
+      <td align="center"><b>선택지 3: 서브워드</b></td>
+      <td align="center">❓</td>
+      <td align="center"><b>목표:</b> 적절한 크기의 단위 찾기</td>
+    </tr>
+  </tbody>
+</table>
 
 ### ⚠️ 실제 언어별 영향
 
 단발성 예시 문장을 기준으로 비교해 보면, 언어별로 **글자당 정보 압축률(효율성)**에서 압도적인 차이가 발생합니다.
 
-| 언어 | 예시 문장 | 실제 글자 수 | 서브워드 토큰 수 | 글자당 토큰 소모율 (압축비) | 누적 사용 시 실제 API 비용 차이 |
-| :--- | :--- | :---: | :---: | :---: | :--- |
-| **영어** | `hello world` | 11글자 | **2개** (`['hello', 'world']`) | **0.18개** (가장 효율적) | **1배** (기준) |
-| **한글** | `안녕하세요` | 5글자 | **2개** (`['안녕', '하세요']`) | **0.40개** (보통) | **약 2.5배 비쌈** |
-| **중국어** | `你好` | 2글자 | **2개** (`['你', '好']`) | **1.00개** (비효율적) | **약 3.0배 비쌈** |
+<table width="100%">
+  <thead>
+    <tr>
+      <th align="center" width="12%">언어</th>
+      <th align="center" width="18%">예시 문장</th>
+      <th align="center" width="15%">실제 글자 수</th>
+      <th align="center" width="25%">서브워드 토큰 수</th>
+      <th align="center" width="15%">글자당 토큰 소모율 (압축비)</th>
+      <th align="center" width="15%">누적 사용 시 실제 API 비용 차이</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="center"><b>영어</b></td>
+      <td align="center"><code>hello world</code></td>
+      <td align="center">11글자</td>
+      <td align="center"><b>2개</b> (<code>['hello', 'world']</code>)</td>
+      <td align="center"><b>0.18개</b> (가장 효율적)</td>
+      <td align="center"><b>1배</b> (기준)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>한글</b></td>
+      <td align="center"><code>안녕하세요</code></td>
+      <td align="center">5글자</td>
+      <td align="center"><b>2개</b> (<code>['안녕', '하세요']</code>)</td>
+      <td align="center"><b>0.40개</b> (보통)</td>
+      <td align="center"><b>약 2.5배 비쌈</b></td>
+    </tr>
+    <tr>
+      <td align="center"><b>중국어</b></td>
+      <td align="center"><code>你好</code></td>
+      <td align="center">2글자</td>
+      <td align="center"><b>2개</b> (<code>['你', '好']</code>)</td>
+      <td align="center"><b>1.00개</b> (비효율적)</td>
+      <td align="center"><b>약 3.0배 비쌈</b></td>
+    </tr>
+  </tbody>
+</table>
 
 > [!NOTE]
 > **📊 글자당 토큰 소모율 계산 로직**
