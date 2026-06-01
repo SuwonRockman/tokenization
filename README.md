@@ -266,7 +266,7 @@ tokenization/
 ├── README.md                           # 📖 기술 깊이 중심 가이드 (현재 문서)
 ├── .gitignore
 ├── notebook/
-│   ├── 01_theory.ipynb                # 📘 이론 (문자/단어/서브워드 비교, 한글 처리 한계 분석)
+│   ├── 01_theory.md                   # 📘 이론 (문자/단어/서브워드 비교, 한글 처리 한계 분석)
 │   └── 02_practice.ipynb              # 💻 실습 (3가지 토크나이저 실행 및 정량적 비용 비교 시각화)
 └── scripts/
     └── (예정)
