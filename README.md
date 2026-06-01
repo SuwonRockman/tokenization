@@ -266,8 +266,8 @@ tokenization/
 ├── README.md                           # 📖 기술 깊이 중심 가이드 (현재 문서)
 ├── .gitignore
 ├── notebook/
-│   ├── 01_theory.md                   # 📘 이론 (문자/단어/서브워드 비교, 한글 처리 한계 분석)
-│   └── 02_practice.ipynb              # 💻 실습 (3가지 토크나이저 실행 및 정량적 비용 비교 시각화)
+│   ├── 01_theory.md                   # 📘 이론 (BPE vs WordPiece 심층 분석)
+│   └── 02_practice.md                 # 💻 실습 (Hugging Face 토크나이저 직접 실행 및 비교)
 └── scripts/
     └── (예정)
 ```
