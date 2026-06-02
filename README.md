@@ -267,8 +267,7 @@ tokenization/
 ├── .gitignore
 ├── notebook/
 │   ├── 01_theory.md                   # 📘 이론 (BPE vs WordPiece 심층 분석)
-│   ├── 02_practice.md                 # 💻 실습 마크다운 버전 (GitHub 빠른 열람용)
-│   └── 02_practice.ipynb              # 💻 실습 주피터 노트북 ([nbviewer로 에러 없이 보기](https://nbviewer.org/github/SuwonRockman/tokenization/blob/master/notebook/02_practice.ipynb))
+│   └── 02_practice.ipynb              # 💻 실습 주피터 노트북 (BPE, WordPiece 비용 분석)
 └── scripts/
     └── (예정)
 ```
