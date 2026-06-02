@@ -304,6 +304,13 @@ tokenization/
   </tbody>
 </table>
 
+---
+
+## 🚀 다음 단계 (Next Step)
+
+지금까지 기획자의 관점에서 토크나이제이션이 비용과 성능에 미치는 전반적인 영향(개괄)을 살펴보았습니다. 
+**[2단계 Theory (심층 이론)](./notebook/01_theory.md)** 파트에서는 이 중 현대 NLP의 근간이 된 두 모델(**BPE**와 **WordPiece**)의 알고리즘 철학과 수학적 차이를 본격적으로 해부합니다.
+
 <div align="right">
   <b>GitHub:</b> <a href="https://github.com/SuwonRockman/tokenization">SuwonRockman/tokenization</a><br>
 </div>
