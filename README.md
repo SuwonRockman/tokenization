@@ -267,7 +267,7 @@ tokenization/
 ├── .gitignore
 ├── notebook/
 │   ├── 01_theory.md                   # 📘 이론 (BPE vs WordPiece 심층 분석)
-│   └── 03_huggingface_and_cost.ipynb              # 💻 실습 주피터 노트북 (BPE, WordPiece 비용 분석)
+│   └── 03_advanced_practice.ipynb              # 💻 실습 주피터 노트북 (BPE, WordPiece 비용 분석)
 └── scripts/
     └── (예정)
 ```
